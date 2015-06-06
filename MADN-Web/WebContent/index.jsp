@@ -7,7 +7,7 @@
 <body>
 
 <div style="width:100%;" align="center">
-	<form method='post' action='spiel_starten.jsp'>
+	<form method='post' action='IndexServlet'>
 	<% 
 		if(spiel.getSpieler().size() == 0){
 			out.println("Anzahl Spieler auswählen:"); 
