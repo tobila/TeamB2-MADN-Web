@@ -37,7 +37,7 @@ public class IndexServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.doPost(request, response);
+		this.doGet(request, response);
 	}
 
 	/**
@@ -56,16 +56,17 @@ public class IndexServlet extends HttpServlet {
 		// System.out.println(anzSpieler + '/' + farbe);
 		
 		int anzKis= Integer.parseInt(anzKi);
+		SpielBean spiel= (SpielBean) sess.getAttribute("spiel");
 		
 		
 		if(name==null){
 			response.sendRedirect("index.jsp");
 		}else{
 			
-			spiel = (SpielBean) sess.getServletContext().getAttribute("spiel");
-			if(spiel==null){
-				this.getServletContext().setAttribute("spiel", new SpielBean());
-				getServletContext().setAttribute("spiel", spiel);
+			
+			if(sess.getAttribute("spiel")==null){
+				sess.setAttribute("spiel", new SpielBean());
+				
 			}
 			
 			if(spiel.getSpieler().size()==0){
