@@ -62,12 +62,13 @@ public class IndexServlet extends HttpServlet {
 		if(name==null){
 			response.sendRedirect("index.jsp");
 		}else{
-			
-			
-			if(sess.getAttribute("spiel")==null){
-				sess.setAttribute("spiel", new SpielBean());
-				
+			spiel = (SpielBean) sess.getServletContext().getAttribute("spiel");
+			if(spiel==null){
+				this.getServletContext().setAttribute("spiel", new SpielBean());
+				getServletContext().setAttribute("spiel", spiel);
 			}
+				
+			
 			
 			if(spiel.getSpieler().size()==0){
 				sess.setAttribute("anzSpieler", anzSpieler);
