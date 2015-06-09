@@ -15,6 +15,7 @@
 <input type="radio" name="save" value="PDF"> PDF <br/>
 </p>
 <button type="submit">Speichern!</button>
-<button type ="reset">Zurücksetzen!</button>
+<button type ="reset">Zurücksetzen!
+target=</button>
 </body>
 </html>

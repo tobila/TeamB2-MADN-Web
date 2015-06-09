@@ -292,7 +292,9 @@ background-size: 100% 100%;
 				</table>
 			</div>
 			<p> 
-			<button name="Speichern">Speichern</button>
+			<a href=SaveFormular.jsp target="new">
+			<button>Speichern</button>
+			</a> 
 		</div>
 		<br />
 		<textarea name="log" readonly="readonly"
