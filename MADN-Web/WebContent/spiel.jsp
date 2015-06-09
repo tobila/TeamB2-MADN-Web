@@ -291,6 +291,8 @@ background-size: 100% 100%;
 					</tr>
 				</table>
 			</div>
+			<p> 
+			<button name="Speichern">Speichern</button>
 		</div>
 		<br />
 		<textarea name="log" readonly="readonly"
