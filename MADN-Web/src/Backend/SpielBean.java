@@ -37,7 +37,7 @@ public class SpielBean implements iBediener, Serializable {
 	 */
 	public SpielBean() {
 		this.brett = new Spielbrett();
-		this.regelwerk = new Regelwerk(this);
+		this.regelwerk = new Regelwerk();
 		spieler = new ArrayList<Spieler>();
 	}
 	
