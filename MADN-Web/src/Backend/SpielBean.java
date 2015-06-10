@@ -27,6 +27,7 @@ public class SpielBean implements iBediener, Serializable {
 	private Regelwerk regelwerk;
 	private String dateiname;
 	private MngJFrame gui;
+	private String log;
 
 	private iDatenzugriff d = new DatenzugriffCSV();
 	private iDatenzugriff s = new DatenzugriffSerialisiert();
@@ -39,6 +40,7 @@ public class SpielBean implements iBediener, Serializable {
 		this.brett = new Spielbrett();
 		this.regelwerk = new Regelwerk(this);
 		spieler = new ArrayList<Spieler>();
+		log = "";
 	}
 	
 	public SpielBean(MngJFrame gui){
@@ -88,11 +90,13 @@ public class SpielBean implements iBediener, Serializable {
 	public void setAmZug(Spieler amZug) {
 		this.amZug = amZug;
 //		System.out.println(getAmZug().toString() + " ist am Zug");
+		setLogging(getLogging()+"\n"+getAmZug().toString() + " ist am Zug");
 		if(gui != null)
 			gui.getAusgabe().setText(gui.getAusgabe().getText()+"\n"+getAmZug().toString() + " ist am Zug");
 		getAmZug().getWuerfel().wuerfeln();
 //		getAmZug().getWuerfel().wuerfel2();
 //		getAmZug().getWuerfel().wurf6();
+		setLogging(getLogging()+"\n"+getAmZug().getWuerfel().getErgebnis()+" gewuerfelt");
 		if(gui != null)
 			gui.getAusgabe().setText(gui.getAusgabe().getText()+"\n"+getAmZug().getWuerfel().getErgebnis()+" gewuerfelt");
 
@@ -177,6 +181,7 @@ public class SpielBean implements iBediener, Serializable {
 
 	@Override
 	public void initSpiel() {
+		setLogging(getLogging()+"\nSpiel gestartet\n---------------------");
 		for (Spieler s : spieler) {
 			FarbEnum farbe = s.getFarbe();
 			switch (farbe) {
@@ -551,6 +556,13 @@ public class SpielBean implements iBediener, Serializable {
 
 	public void setGeschmissen(Spielfigur geschmissen) {
 		this.geschmissen = geschmissen;
+	}
+	
+	public void setLogging(String s){
+		this.log=s;
+	}
+	public String getLogging(){
+		return log;
 	}
 
 }

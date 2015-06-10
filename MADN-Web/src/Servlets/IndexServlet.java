@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.apple.eawt.Application;
+
 import Backend.SpielBean;
 
 /**
@@ -54,18 +56,19 @@ public class IndexServlet extends HttpServlet {
 		// System.out.println(anzSpieler + '/' + farbe);
 		
 		int anzKis= Integer.parseInt(anzKi);
-		SpielBean spiel= (SpielBean) sess.getAttribute("spiel");
+		SpielBean spiel = (SpielBean) sess.getServletContext().getAttribute("spiel");
 		
 		
 		if(name==null){
 			response.sendRedirect("index.jsp");
 		}else{
 			
-			
-			if(sess.getAttribute("spiel")==null){
-				sess.setAttribute("spiel", new SpielBean());
-				
+			if(spiel==null){
+				this.getServletContext().setAttribute("spiel", new SpielBean());
+				getServletContext().setAttribute("spiel", spiel);
 			}
+				
+			
 			
 			if(spiel.getSpieler().size()==0){
 				sess.setAttribute("anzSpieler", anzSpieler);

@@ -36,7 +36,12 @@ public class SpielServlet extends HttpServlet {
 		response.setContentType("text/html");
 		HttpSession sess = request.getSession(true);
 		
-		SpielBean spiel= (SpielBean) sess.getAttribute("spiel");
+//		SpielBean spiel= (SpielBean) sess.getAttribute("spiel");
+		SpielBean spiel = (SpielBean) sess.getServletContext().getAttribute("spiel");
+		if(spiel==null){
+			this.getServletContext().setAttribute("spiel", new SpielBean());
+			getServletContext().setAttribute("spiel", spiel);
+		}
 		
 		
 		int id = Integer.parseInt(request.getParameter("id"));

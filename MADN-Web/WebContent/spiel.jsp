@@ -882,6 +882,6 @@ session.setAttribute("init", "1");
 			
 		<br />
 		<textarea name="log" readonly="readonly"
-			style="width: 40%; resize: none;" rows="6">Logging blabla</textarea>
+			style="width: 40%; resize: none;" rows="6"><%out.print(spiel.getLogging());%></textarea>
 	</center>
 	<%@ include file="footer.jsp"%>
