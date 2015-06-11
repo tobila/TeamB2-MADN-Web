@@ -90,13 +90,13 @@ public class SpielBean implements iBediener, Serializable {
 	public void setAmZug(Spieler amZug) {
 		this.amZug = amZug;
 //		System.out.println(getAmZug().toString() + " ist am Zug");
-		setLogging(getLogging()+"\n"+getAmZug().toString() + " ist am Zug");
+		setLogging(getAmZug().toString() + " ist am Zug");
 		if(gui != null)
 			gui.getAusgabe().setText(gui.getAusgabe().getText()+"\n"+getAmZug().toString() + " ist am Zug");
 		getAmZug().getWuerfel().wuerfeln();
 //		getAmZug().getWuerfel().wuerfel2();
 //		getAmZug().getWuerfel().wurf6();
-		setLogging(getLogging()+"\n"+getAmZug().getWuerfel().getErgebnis()+" gewuerfelt");
+		setLogging(getAmZug().getWuerfel().getErgebnis()+" gewuerfelt");
 		if(gui != null)
 			gui.getAusgabe().setText(gui.getAusgabe().getText()+"\n"+getAmZug().getWuerfel().getErgebnis()+" gewuerfelt");
 
@@ -181,7 +181,7 @@ public class SpielBean implements iBediener, Serializable {
 
 	@Override
 	public void initSpiel() {
-		setLogging(getLogging()+"\nSpiel gestartet\n---------------------");
+		setLogging("Spiel gestartet\n---------------------");
 		for (Spieler s : spieler) {
 			FarbEnum farbe = s.getFarbe();
 			switch (farbe) {
@@ -559,7 +559,7 @@ public class SpielBean implements iBediener, Serializable {
 	}
 	
 	public void setLogging(String s){
-		this.log=s;
+		this.log=getLogging()+"\n"+s;
 	}
 	public String getLogging(){
 		return log;

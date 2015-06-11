@@ -2,28 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style>
-img {
-  width:100%;
-  height:auto;
-}
-table	{width:100%; height:100%; }
-td		{width:9%; height:9%; text-align: center;}
-.panel {
-position:relative;
-width:40%;
-padding-top:40%;
-}
-.content {
-position:absolute;
-height:100%;
-width:100%;
-margin-top:-100%;
-background-image:url(bilder/madnbg.jpg);
-background-size: 100% 100%;
-}
-</style>
-
+<link rel="stylesheet" href="style.css" type="text/css">
+<script type="text/javascript">
+window.onload=function() {
+    document.getElementsByName('log')[0].scrollTop=document.getElementsByName('log')[0].scrollHeight;
+};
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spiel</title>
 </head>
@@ -36,18 +20,32 @@ session.setAttribute("init", "1");
 %>
 	<center>
 		
-		<div class="menu">
-			<%if(request.getParameter("id") != null)
-				out.print("<a href='SpielServlet?id="+request.getParameter("id").toString()+"'><button>Zug durchführen</button></a>");
-			else
-				out.print("<a href='SpielServlet'><button disabled='disabled'>Zug durchführen</button></a>");%>
-			<a href=SaveFormular.jsp target="new"><button>Speichern</button></a> 
-		</div>
-		<br />
-		
-		<div class="panel">
-			<div class="content">
 
+		<div id="container">
+			<div id=menu><%
+				switch(spiel.getAmZug().getWuerfel().getErgebnis()){
+				case 1:
+					out.print("<img src='bilder/erg1.png' id='wuerfel'>");
+					break;
+				case 2:
+					out.print("<img src='bilder/erg2.png' id='wuerfel'>");
+					break;
+				case 3:
+					out.print("<img src='bilder/erg3.png' id='wuerfel'>");
+					break;
+				case 4:
+					out.print("<img src='bilder/erg4.png' id='wuerfel'>");
+					break;
+				case 5:
+					out.print("<img src='bilder/erg5.png' id='wuerfel'>");
+					break;
+				case 6:
+					out.print("<img src='bilder/erg6.png' id='wuerfel'>");
+					break;
+				}%>
+			</div>
+			
+			<div id="spielfeld"><div class="panel"><div class="content">
 				<table border="0">
 					<tr>
 						<td id="sr1" ><%
@@ -121,6 +119,7 @@ session.setAttribute("init", "1");
 								out.print("<a href='spiel.jsp?id="+id+"'><img src='bilder/Figur_blau.png'></a>");
 							}
 						%></td>
+						
 					</tr>
 					<tr>
 						<td id="sr3"><%
@@ -874,14 +873,21 @@ session.setAttribute("init", "1");
 						%></td>
 					</tr>
 				</table>
+			</div></div></div>
+			
+			
+			<div id="menu"><%
+				if(request.getParameter("id") != null)
+					out.print("<a href='SpielServlet?id="+request.getParameter("id").toString()+"'><button>Zug durchführen</button></a>");
+				else
+					out.print("<a href='SpielServlet'><button disabled='disabled'>Zug durchführen</button></a>");%>
+					
+				<br /><a href=SaveFormular.jsp target="new"><button>Speichern</button></a> 
 			</div>
-			
-		
-			
 		</div>
+
 			
 		<br />
-		<textarea name="log" readonly="readonly"
-			style="width: 40%; resize: none;" rows="6"><%out.print(spiel.getLogging());%></textarea>
+		<textarea name="log" id="log" readonly="readonly" style="width: 40%; resize: none;" rows="6"><%out.print(spiel.getLogging());%></textarea>
 	</center>
 	<%@ include file="footer.jsp"%>
