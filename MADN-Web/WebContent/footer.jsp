@@ -1,7 +1,7 @@
 <br/>
 <br/>
 <center>
-footer..
+c. Mensch Ärger Dich Nicht | Gruppe B2 | Informatik 2 | SS2015
 </center>
 </body>
 </html>
