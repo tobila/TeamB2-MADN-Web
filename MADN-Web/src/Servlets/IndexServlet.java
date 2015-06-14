@@ -3,6 +3,7 @@ package Servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,6 @@ import Backend.SpielBean;
 @WebServlet("/IndexServlet")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private SpielBean spiel;
 	private String name;
 	private String farbe;
 	private String anzSpieler;
@@ -52,8 +52,7 @@ public class IndexServlet extends HttpServlet {
 		farbe = (request.getParameter("farbe") != null ? request.getParameter("farbe") : "");
 		anzSpieler = (request.getParameter("anzSpieler") != null ? request.getParameter("anzSpieler") : "0");
 		anzKi= (request.getParameter("anzKi") != null ? request.getParameter("anzKi") : "0");
-		
-		// System.out.println(anzSpieler + '/' + farbe);
+
 		
 		int anzKis= Integer.parseInt(anzKi);
 		SpielBean spiel = (SpielBean) sess.getServletContext().getAttribute("spiel");
@@ -71,7 +70,8 @@ public class IndexServlet extends HttpServlet {
 			
 			
 			if(spiel.getSpieler().size()==0){
-				sess.setAttribute("anzSpieler", anzSpieler);
+//				sess.setAttribute("anzSpieler", anzSpieler);
+				getServletContext().setAttribute("anzSpieler", anzSpieler);
 			}else{
 				if(name.length()==0 || name.length()<2){
 					sess.setAttribute("loginFehler", "Kein zulaessiger Benutzername. Ein Benutzername muss aus mindestens 2 Buchstaben oder Zeichen bestehen.");
@@ -84,7 +84,9 @@ public class IndexServlet extends HttpServlet {
 		
 		
 	
-		int sp = spiel.getSpieler().size();
+		String anzSp = getServletContext().getAttribute("anzSpieler").toString();
+		int sp = Integer.parseInt(anzSp);
+		
 		if(sess.getAttribute("aktu").equals("1")){
 			String lFarbe = farbe;
 			String lName = name;
@@ -249,9 +251,22 @@ public class IndexServlet extends HttpServlet {
 			
 		}
 		
-		sess.setAttribute("aktu", "2");
+		
+		if(sess.getAttribute("aktu").equals("1")){
+			ServletContext sc = this.getServletContext();
+			for(int i=1; i<=4; i++){
+				if(sc.getAttribute("s"+i) == null){
+					sc.setAttribute("s"+i, sess.getId());
+					sc.setAttribute("farbeS"+i, farbe);
+					break;
+				}
+			}
 			
-		System.out.println(sp + "/" + anzKis);
+			System.out.println(sess.getId()); 
+		}
+		sess.setAttribute("aktu", "2");
+		
+			
 		
 		if(sp == spiel.getSpieler().size()){
 			response.sendRedirect("spiel.jsp");

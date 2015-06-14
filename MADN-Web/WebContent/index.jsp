@@ -46,7 +46,7 @@
 			out.println("</select>");
 		}
 		session.setAttribute("aktu", "1");
-		session.setAttribute("init", "0");
+		application.setAttribute("init", "0");
 	%>
 	<br/>
 	Name: <input name='name' type='text' size='20'>

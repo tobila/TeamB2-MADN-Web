@@ -3,6 +3,7 @@ package Servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +49,10 @@ public class SpielServlet extends HttpServlet {
 		spiel.zugDurchfuehren(id);
 //		System.out.println(spiel);
 		
-		response.sendRedirect("spiel.jsp");
+//		response.sendRedirect("spiel.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("spiel.jsp");
+		rd.forward(request, response);
+		
 	}
 
 }
