@@ -13,13 +13,15 @@
 	
 	<%
 	
-		session.setAttribute("anzSpieler", request.getParameter("anzSpieler"));
-		String anzSpieler = session.getAttribute("anzSpieler").toString();
+	if(spiel.getSpieler().size() == 0){
+		application.setAttribute("anzSpieler", request.getParameter("anzSpieler"));
+		application.setAttribute("anzKi", request.getParameter("anzKi"));
+	}
+	String anzSpieler = application.getAttribute("anzSpieler").toString();
 	int sp = Integer.parseInt(anzSpieler);
 	
 	
-	session.setAttribute("anzKi", request.getParameter("anzKi"));
-	String anzKi = session.getAttribute("anzKi").toString();
+	String anzKi = application.getAttribute("anzKi").toString();
 	int ki = Integer.parseInt(anzKi);
 	
 	
