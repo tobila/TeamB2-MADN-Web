@@ -44,14 +44,15 @@ public class SpielServlet extends HttpServlet {
 			getServletContext().setAttribute("spiel", spiel);
 		}
 		
-		
-		int id = Integer.parseInt(request.getParameter("id"));
-		spiel.zugDurchfuehren(id);
+		try{
+			int id = Integer.parseInt(request.getParameter("id"));
+			spiel.zugDurchfuehren(id);
+		}catch(Exception e){
+			spiel.setNaechster(spiel.getAmZug());
+		}
 //		System.out.println(spiel);
 		
-//		response.sendRedirect("spiel.jsp");
-		RequestDispatcher rd = request.getRequestDispatcher("spiel.jsp");
-		rd.forward(request, response);
+		response.sendRedirect("spiel.jsp");
 		
 	}
 

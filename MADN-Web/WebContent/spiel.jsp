@@ -78,7 +78,29 @@ if(application.getAttribute("init").equals("0")){
 						%></td>
 						<td></td>
 						<td></td>
-						<td></td>
+						<td><%
+							if(spiel.getBrett().getSpielbrett()[8].getFelder()[0].getSpielfigur() != null){
+								int id = spiel.getBrett().getSpielbrett()[8].getFelder()[0].getSpielfigur().getID();
+								FarbEnum farbe = spiel.getBrett().getSpielbrett()[8].getFelder()[0].getSpielfigur().getFarbe();
+								if(farbe.equals(FarbEnum.RED)){
+									if(session.getId().equals(application.getAttribute("amZug")) && spiel.getAmZug().getFarbe1().equals("red"))
+										out.print("<a href='spiel.jsp?id="+id+"'>");
+									out.print("<img src='bilder/Figur_rot.png'></a>");
+								}else if(farbe.equals(FarbEnum.BLUE)){
+									if(session.getId().equals(application.getAttribute("amZug")) && spiel.getAmZug().getFarbe1().equals("blue"))
+										out.print("<a href='spiel.jsp?id="+id+"'>");
+									out.print("<img src='bilder/Figur_blau.png'></a>");
+								}else if(farbe.equals(FarbEnum.GREEN)){
+									if(session.getId().equals(application.getAttribute("amZug")) && spiel.getAmZug().getFarbe1().equals("green"))
+										out.print("<a href='spiel.jsp?id="+id+"'>");
+									out.print("<img src='bilder/Figur_gruen.png'></a>");
+								}else if(farbe.equals(FarbEnum.YELLOW)){
+									if(session.getId().equals(application.getAttribute("amZug")) && spiel.getAmZug().getFarbe1().equals("yellow"))
+										out.print("<a href='spiel.jsp?id="+id+"'>");									
+									out.print("<img src='bilder/Figur_gelb.png'></a>");
+								}
+							}
+						%></td>
 						<td><%
 							if(spiel.getBrett().getSpielbrett()[9].getFelder()[0].getSpielfigur() != null){
 								int id = spiel.getBrett().getSpielbrett()[9].getFelder()[0].getSpielfigur().getID();
@@ -1297,7 +1319,14 @@ if(application.getAttribute("init").equals("0")){
 					out.print("<a href='SpielServlet'><button disabled='disabled'>Zug durchführen</button></a>");%>
 					
 				<br />
-				<a href=SpielAussetzen id= naechster><button>aussetzten</button></a> 
+			<%
+			if(session.getId().equals(application.getAttribute("amZug"))){
+				out.print("<a href='SpielServlet?id=next'><button>aussetzen</button></a>");
+			}else{
+				out.print("<a href='SpielServlet?id=next'><button disabled='disabled'>aussetzen</button></a>");
+			}
+			%>
+<br/>
 				<a href=SaveFormular.jsp target="new"><button>speichern</button></a> 
 			</div>
 		</div>
