@@ -23,8 +23,8 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String farbe;
-	private String anzSpieler;
-	private String anzKi;
+	private static int z;
+	private static boolean ki;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -50,17 +50,16 @@ public class IndexServlet extends HttpServlet {
 		
 		name= (request.getParameter("name") != null ? request.getParameter("name") : "");
 		farbe = (request.getParameter("farbe") != null ? request.getParameter("farbe") : "");
-		anzSpieler = (request.getParameter("anzSpieler") != null ? request.getParameter("anzSpieler") : "0");
-		anzKi= (request.getParameter("anzKi") != null ? request.getParameter("anzKi") : "0");
 
+				
 		
-		int anzKis= Integer.parseInt(anzKi);
+		
+		
+		
+		
+		
+		
 		SpielBean spiel = (SpielBean) sess.getServletContext().getAttribute("spiel");
-		
-		
-		if(name==null){
-			response.sendRedirect("index.jsp");
-		}else{
 			
 			if(spiel==null){
 				this.getServletContext().setAttribute("spiel", new SpielBean());
@@ -68,172 +67,210 @@ public class IndexServlet extends HttpServlet {
 			}
 				
 			
+		
 			
-			if(spiel.getSpieler().size()==0){
-//				sess.setAttribute("anzSpieler", anzSpieler);
-				getServletContext().setAttribute("anzSpieler", anzSpieler);
-			}else{
-				if(name.length()==0 || name.length()<2){
-					sess.setAttribute("loginFehler", "Kein zulaessiger Benutzername. Ein Benutzername muss aus mindestens 2 Buchstaben oder Zeichen bestehen.");
-					response.sendRedirect("index.jsp");
-				}else{
 					request.getSession(true).setAttribute("name", name);
-				}
-			}
-		}
+					request.getSession(true).setAttribute("farbe", farbe);
 		
-		
+					
 	
-		String anzSp = getServletContext().getAttribute("anzSpieler").toString();
-		int sp = Integer.parseInt(anzSp);
+	
+		
 		
 		if(sess.getAttribute("aktu").equals("1")){
 			String lFarbe = farbe;
 			String lName = name;
+		
+	
+		
 			
-			if(anzKi.equals("0")){
+			if(spiel.getGewählteKis()==0){
 				spiel.SpielerHinzufuegen(lName, lFarbe, null);
-			} 
+				
+			}if (spiel.getGewählteSpieler() != 0 && ki==true) {
+				System.out.println("spieler 0, ki true");
+					spiel.SpielerHinzufuegen(name, farbe, null);
+				}
 			
-			if(anzKis+sp>4){
-				sess.setAttribute("loginFehler", "Das Spiel kann nur aus insgesammt 4 Mitspielern bestehen.");
+			if(spiel.getGewählteKis()!=0 && spiel.getGewählteSpieler()==0 && ki==false){
+				ki=true;
+				System.out.println("spieler 0");
+				switch(spiel.getGewählteKis()){
+				case 1:spiel.SpielerHinzufuegen("ki1", "red", "DEFENSIV");
+				break;
 				
-				response.sendRedirect("index.jsp");
-				
-			}else if(anzKis!=0) {
+				case 2:
+					spiel.SpielerHinzufuegen("ki1", "red", "AGGRESSIV");
+					spiel.SpielerHinzufuegen("ki1", "blue", "AGGRESSIV");
+					System.out.println("case2ki");
+					break;
+					
+				case 3:
+					spiel.SpielerHinzufuegen("ki1", "red", "AGGRESSIV");
+					spiel.SpielerHinzufuegen("ki1", "blue", "AGGRESSIV");
+					spiel.SpielerHinzufuegen("ki1", "green", "AGGRESSIV");
+					System.out.println("spieler 3");
+					break;
+				case 4:
+					spiel.SpielerHinzufuegen("ki1", "red", "AGGRESSIV");
+					spiel.SpielerHinzufuegen("ki1", "blue", "AGGRESSIV");
+					spiel.SpielerHinzufuegen("ki1", "green", "AGGRESSIV");
+					spiel.SpielerHinzufuegen("ki1", "yellow", "AGGRESSIV");
+					break;
+				}
+			}
+			
+		}if(spiel.getGewählteKis()!=0 && spiel.getGewählteSpieler()!=0 && ki==false) {
+			System.out.println("sspieler 1 und ki");
+			spiel.SpielerHinzufuegen(name, farbe, null);
 				boolean red= false;
 				boolean blue= false;
 				boolean yellow= false;
 				boolean green= false;
-				int z=0;
+				ki= true;
 				
-				switch(anzKis) {
+				switch (spiel.getGewählteKis()) {
+				
 				case 1:
-					for(int i=0; i<spiel.getSpieler().size();i++){
-						if(spiel.getSpieler().get(i).equals("red")){
-							
-							red=true;
-						}
-						if(spiel.getSpieler().get(i).equals("blue")){
-							blue=true;
-						}
-						if(spiel.getSpieler().get(i).equals("green")){
-							green=true;
-						}
-						if(spiel.getSpieler().get(i).equals("yellow")){
-							yellow=true;
+					
+					
+					if (spiel.getSpieler() != null) {
+
+						for (int i = 0; i < spiel.getSpieler().size(); i++) {
+							if (spiel.getSpieler().get(i).getFarbe1()
+									.equals("red")) {
+								System.out.println("redtrue");
+								red = true;
+							}
+							if (spiel.getSpieler().get(i).getFarbe1()
+									.equals("blue")) {
+								blue = true;
+							}
+							if (spiel.getSpieler().get(i).getFarbe1()
+									.equals("green")) {
+								green = true;
+							}
+							if (spiel.getSpieler().get(i).getFarbe1()
+									.equals("yellow")) {
+								yellow = true;
+							}
 						}
 					}
-						if(red==false && z<2){
-							spiel.SpielerHinzufuegen( "ki1","red", "AGGRESSIV");
-							
-							z++;
-							
-						}if(blue==false&& z<2){
-							spiel.SpielerHinzufuegen( "ki1","blue", "AGGRESSIV");
-						
-							z++;
-							
-						}if(green==false&& z<2){
-							spiel.SpielerHinzufuegen( "ki1","green", "AGGRESSIV");
-							
-							z++;
-							
-						}if(yellow==false&& z<2){
-							spiel.SpielerHinzufuegen( "ki1","yellow", "AGGRESSIV");
-							
-							z++;
-							
-						}
+					if (red == false && z==0) {
+						spiel.SpielerHinzufuegen("ki1", "red", "AGGRESSIV");
+						System.out.println("kired");
+						z++;
+					}
+					if (blue == false&& z==0) {
+						spiel.SpielerHinzufuegen("ki1", "blue", "AGGRESSIV");
+						z++;
+					}
+					if (green == false&& z==0) {
+						spiel.SpielerHinzufuegen("ki1", "green", "AGGRESSIV");
+						z++;
+					}
+					if (yellow == false && z==0) {
+						spiel.SpielerHinzufuegen("ki1", "yellow", "AGGRESSIV");
+						z++;
+					}
 					
 					
 				break;
+				
 				case 2: 
-					 z=0;
+				
 					for(int i=0; i<spiel.getSpieler().size();i++){
-						if(spiel.getSpieler().get(i).equals("red")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("red")){
+			
 							red=true;
 						}
-						if(spiel.getSpieler().get(i).equals("blue")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("blue")){
 							blue=true;
 						}
-						if(spiel.getSpieler().get(i).equals("green")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("green")){
 							green=true;
 						}
-						if(spiel.getSpieler().get(i).equals("yellow")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("yellow")){
 							yellow=true;
 						}
 					}
-						if(red==false&z<=2){
+						if(red==false&& z<2){
 							spiel.SpielerHinzufuegen( "ki1","red", "AGGRESSIV");
 							z++;
-						}if(blue==false& z<=2){
+						}if(blue==false&&z<2){
+							System.out.println("kiblue");
 							spiel.SpielerHinzufuegen( "ki1","blue", "AGGRESSIV");
 							z++;
-						}if(green==false& z<=2){
+						}if(green==false&&z<2){
+							System.out.println("green");
 							spiel.SpielerHinzufuegen( "ki1","green", "AGGRESSIV");
 							z++;
-						} if(yellow==false & z<=2){
+						} if(yellow==false&&z<2){
+							System.out.println("yellow");
 							spiel.SpielerHinzufuegen( "ki1","yellow", "AGGRESSIV");
 							z++;
 						}
 					
 				break;
 				case 3:
-					 z=0;
+					System.out.println("case3");
 					for(int i=0; i<spiel.getSpieler().size();i++){
-						if(spiel.getSpieler().get(i).equals("red")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("red")){
 							red=true;
 						}
-						if(spiel.getSpieler().get(i).equals("blue")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("blue")){
 							blue=true;
 						}
-						if(spiel.getSpieler().get(i).equals("green")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("green")){
 							green=true;
 						}
-						if(spiel.getSpieler().get(i).equals("yellow")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("yellow")){
 							yellow=true;
 						}
-						if(red==false&&z<=3){
+						if(red==false&&z<3){
 							spiel.SpielerHinzufuegen( "ki1","red", "AGGRESSIV");
+							System.out.println("casered");
 							z++;
-						}else if(blue==false&& z<=3){
+						}if(blue==false&&z<3){
 							spiel.SpielerHinzufuegen( "ki1","blue", "AGGRESSIV");
+							System.out.println("caseblue");
 							z++;
-						}else if(green==false&& z<=3){
+						}if(green==false&&z<3){
 							spiel.SpielerHinzufuegen( "ki1","green", "AGGRESSIV");
+							System.out.println("casegreen");
 							z++;
-						}else if(yellow==false&&z<=3){
+						}if(yellow==false&&z<3){
 							spiel.SpielerHinzufuegen( "ki1","yellow", "AGGRESSIV");
+							System.out.println("caseyellow");
 							z++;
 						}
 					}
 				case 4:
-					z=0;
+					
 					for(int i=0; i<spiel.getSpieler().size();i++){
-						if(spiel.getSpieler().get(i).equals("red")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("red")){
 							red=true;
 							
 						}
-						if(spiel.getSpieler().get(i).equals("blue")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("blue")){
 							blue=true;
 						}
-						if(spiel.getSpieler().get(i).equals("green")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("green")){
 							green=true;
 						}
-						if(spiel.getSpieler().get(i).equals("yellow")){
+						if(spiel.getSpieler().get(i).getFarbe1().equals("yellow")){
 							yellow=true;
 						}
-						if(red==false&&z<=4){
+						if(red==false&&z<4){
 							spiel.SpielerHinzufuegen( "ki1","red", "AGGRESSIV");
 							z++;
-						}else if(blue==false&& z<=4){
+						}else if(blue==false&&z<4){
 							spiel.SpielerHinzufuegen( "ki1","blue", "AGGRESSIV");
 							z++;
-						}else if(green==false&& z<=4){
+						}else if(green==false&&z<4){
 							spiel.SpielerHinzufuegen( "ki1","green", "AGGRESSIV");
 							z++;
-						}else if(yellow==false&&z<=4){
+						}else if(yellow==false&&z<4){
 							spiel.SpielerHinzufuegen( "ki1","yellow", "AGGRESSIV");
 							z++;
 						}
@@ -244,12 +281,6 @@ public class IndexServlet extends HttpServlet {
 				
 				
 			}
-			
-			/* if (!anzSpieler.equals("0") && anzKis!=0){
-			spiel.SpielerHinzufuegen(name, farbe, null);
-			} */
-			
-		}
 		
 		
 		if(sess.getAttribute("aktu").equals("1")){
@@ -268,12 +299,13 @@ public class IndexServlet extends HttpServlet {
 		
 			
 		
+		int sp= spiel.getGewählteKis()+spiel.getGewählteSpieler(); 
 		if(sp == spiel.getSpieler().size()){
 			response.sendRedirect("spiel.jsp");
 		}
 		
 		//System.out.println(spiel.getSpieler().size());
-		
+		int spielerAnzahl=spiel.getGewählteKis()+spiel.getGewählteSpieler();
 	     String uri = request.getRequestURI();
 	     if (request.getQueryString() != null)
 	         uri += "?" + request.getQueryString();
@@ -281,6 +313,7 @@ public class IndexServlet extends HttpServlet {
 		out.println("<html><head></head><body><div>");
 		out.println("Warte auf andere Spieler.. <a href='" + uri + "'> aktualisieren </a>");
 		out.println("<br/>Aktuelle anzahl Spieler: "+ spiel.getSpieler().size());
+		out.println("<br/>SpielerAnzahl: "+ spielerAnzahl);
 		out.println("</div></body></html>");
 		out.close();
 		

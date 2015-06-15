@@ -1296,7 +1296,9 @@ if(application.getAttribute("init").equals("0")){
 				else
 					out.print("<a href='SpielServlet'><button disabled='disabled'>Zug durchführen</button></a>");%>
 					
-				<br /><a href=SaveFormular.jsp target="new"><button>Speichern</button></a> 
+				<br />
+				<a href=SpielAussetzen id= naechster><button>aussetzten</button></a> 
+				<a href=SaveFormular.jsp target="new"><button>speichern</button></a> 
 			</div>
 		</div>
 

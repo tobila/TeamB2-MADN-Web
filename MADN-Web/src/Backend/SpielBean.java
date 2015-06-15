@@ -28,7 +28,11 @@ public class SpielBean implements iBediener, Serializable {
 	private String dateiname;
 	private MngJFrame gui;
 	private String log;
-
+	private int gewählteSpieler=0;
+	private int gewählteKis=0;
+	
+	
+	
 	private iDatenzugriff d = new DatenzugriffCSV();
 	private iDatenzugriff s = new DatenzugriffSerialisiert();
 
@@ -57,6 +61,23 @@ public class SpielBean implements iBediener, Serializable {
 		return brett;
 	}
 
+	public int getGewählteSpieler(){
+		return gewählteSpieler;
+	}
+	
+	public void setGewählteSpieler(int gewählteSpieler ){
+		this.gewählteSpieler=gewählteSpieler;
+	}
+
+	public int getGewählteKis(){
+		return gewählteKis;
+	}
+	
+	public void setGewählteKis(int gewählteKis ){
+		this.gewählteKis=gewählteKis;
+	}
+	
+	
 	/**
 	 * gibt das Array der Spieler zurueck
 	 * 
@@ -246,7 +267,7 @@ public class SpielBean implements iBediener, Serializable {
 			}
 		}
 		// System.out.println(brett.toString());
-		setAmZug(spieler.get(0));
+		//setAmZug(spieler.get(0));
 	}
 
 	@Override

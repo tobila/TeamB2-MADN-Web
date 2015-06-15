@@ -11,46 +11,64 @@
 <div style="width:100%;" align="center">
 	<form method='get' action='IndexServlet'>
 	
+	<%
 	
-	<br/>
-	<span>Farbe auswählen:</span>
-	<select name='farbe'>
-		<option value='red'>RED</option>
-		<option value='blue'>BLUE</option>
-		<option value='green'>GREEN</option>
-		<option value='yellow'>YELLOW</option>
-	</select><br />
-	<% 
-		if(spiel.getSpieler().size() == 0){
-			out.println("<span>Anzahl Spieler auswählen:</span>"); 
-			out.println("<select name=\"anzSpieler\">");
-			out.println("<option>0</option>"); 
-			out.println("<option>1</option>"); 
-			out.println("<option>2</option>"); 
-			out.println("<option>3</option>"); 
-			out.println("<option>4</option>");
-			
-			
-			
-			out.println("</select>");
-			out.println("<br />");
-			out.println("<span>Anzahl Ki Auswählen:</span>");
-			
-			out.println("<select name=anzKi>"); 
-			out.println("<option>0</option>"); 
-			out.println("<option>1</option>"); 
-			out.println("<option>2</option>"); 
-			out.println("<option>3</option>"); 
-			out.println("<option>4</option>");
-			
-			out.println("</select>");
-		}
-		session.setAttribute("aktu", "1");
-		application.setAttribute("init", "0");
-	%>
-	<br/>
-	Name: <input name='name' type='text' size='20'>
-	<input id='senden' type='submit' value='OK'>
+		session.setAttribute("anzSpieler", request.getParameter("anzSpieler"));
+		String anzSpieler = session.getAttribute("anzSpieler").toString();
+	int sp = Integer.parseInt(anzSpieler);
+	
+	
+	session.setAttribute("anzKi", request.getParameter("anzKi"));
+	String anzKi = session.getAttribute("anzKi").toString();
+	int ki = Integer.parseInt(anzKi);
+	
+	
+	int ergebnis=ki+sp;
+	if(sp+ki>4){
+		out.println("<html><head></head><body><div>");
+		out.println("Maximal 4 Spieler auswählen <a href='login.jsp'> zurück </a>");
+		out.println("<br/>Aktuelle anzahl Spieler: "+ergebnis);
+		out.println("</div></body></html>");
+		
+	}
+	if(sp==0){
+		spiel.setGewählteKis(ki);
+		 spiel.setGewählteSpieler(sp);
+		 out.println("<input id='senden' type='submit' value='OK'>");
+		 session.setAttribute("aktu", "1");
+	}
+	
+	if(ergebnis<=4&& sp!=0){
+	 spiel.setGewählteKis(ki);
+	 spiel.setGewählteSpieler(sp);
+	 session.setAttribute("aktu", "1");
+	 application.setAttribute("init", "0");
+		
+		out.println("<span> Farbe wählen:</span>"); 
+		out.println("<select name=\"farbe\">");
+		
+		out.println("<option value='red'>RED</option>"); 
+		out.println("<option value='blue'>BLUE</option>"); 
+		out.println("<option value='green'>GREEN</option>"); 
+		out.println("<option value='yellow'>YELLOW</option>");
+		
+		
+		
+		out.println("</select>");
+		out.println("<br />");
+		out.println("<span> Name:</span>"); 
+		out.println("<input name='name' type='text' size='20'>");
+		out.println("<input id='senden' type='submit' value='OK'>"); 
+		
+	
+	
+
+	}
+%>
+
+	
+	
 	</form>
 </div>
+
 <%@ include file="footer.jsp" %>
