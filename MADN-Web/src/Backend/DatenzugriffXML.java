@@ -19,7 +19,7 @@ import Spiel.SpielBean;
 public class DatenzugriffXML implements iDatenzugriff {
 
 	@Override
-	public void spielSpeichern(Object spiel, String dateipfad) throws IOException, JAXBException {
+	public void speichern(String dateiname, String dateiende, Object o) throws IOException, JAXBException {
 		
 		
 		FileWriter fw = null;
@@ -57,7 +57,7 @@ public class DatenzugriffXML implements iDatenzugriff {
 		Unmarshaller um = context.createUnmarshaller();
 		SpielBean s = (SpielBean)um.unmarshal(new FileReader(dateipfad));
 		
-		//Alle SPieler ordnen
+		
 		
 		return s;
 	}

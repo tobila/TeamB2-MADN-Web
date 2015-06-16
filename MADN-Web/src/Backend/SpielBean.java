@@ -486,7 +486,9 @@ public class SpielBean implements iBediener, Serializable {
 	paintFocu
 	paintFocusZsZpaintFocusZpaintFocusZpaintFocusZspielfigurt
 	nd.Spielerarifier;Lselect-allsq
-	{
+	{paintFocusZcomposedTextAttributetÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
+	                                                                                                                                                                                                                                                                       	spielfigurtrifier;Lÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
+	                                                                                                                                                                                                                                                                       	                                                                                                                                                                                                                                                    	nd.Spieleraaaa[Lbackeÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿ
 	nd.Spieleraa[Lbackend.Spieler$Spielfigur;eŒW¤3%ı•
 	paintFocusZcomposedTextAttributetÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
 	spielfigurtrifier;Lÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
@@ -568,7 +570,9 @@ public class SpielBean implements iBediener, Serializable {
 		}
 
 	}
-
+	paintFocusZcomposedTextAttributetÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
+	                       	spielfigurtrifier;Lÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
+	       	nd.Spieleraaaa[Lbackeÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿ
 	public String getDateiname() {
 		return dateiname;
 	}
