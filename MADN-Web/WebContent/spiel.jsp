@@ -1328,6 +1328,7 @@ if(application.getAttribute("init").equals("0")){
 			%>
 <br/>
 				<a href=SaveFormular.jsp target="new"><button>speichern</button></a> 
+				dropTargettalignmentXFlanguageqdropTargettalignmentXFlanguageqdropTargettalignmentXFlanguageq
 			</div>
 		</div>
 				<a href=SaveFormular.jsp target="new"><button>speichern</button></a> 
