@@ -32,17 +32,13 @@ public class SpeichernServlet extends HttpServlet {
        
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
@@ -58,7 +54,7 @@ public class SpeichernServlet extends HttpServlet {
 				iDatenzugriff id = null;
 				String pfad =  request.getServletContext().getRealPath("gespeicherteDateien/") + "/";
 				if(dateiformat.equals("pdf")){
-					id = new DatenzugriffPDFServer(request); 
+					id = new DatenzugriffPDF(request); 
 					dateiname += ".pdf";
 					try {
 						id.spielSpeichern(spiel, pfad + dateiname);
@@ -74,11 +70,11 @@ public class SpeichernServlet extends HttpServlet {
 					
 				} else if(dateiformat.equals("ser")){
 					id = new DatenzugriffSerialisiert(); 
-					dateiname += ".ser";
-				} else if(dateiformat.equals("xml")){
-					id = new DatenzugriffXML(); 
-					dateiname += ".xml";
-				}
+					dateiname += ".ser";	} 
+//					else if(dateiformat.equals("xml")){
+//					id = new DatenzugriffXML(); 
+//					dateiname += ".xml";
+//				}
 				
 				try {
 					id.spielSpeichern(spiel, pfad + dateiname);
@@ -88,16 +84,14 @@ public class SpeichernServlet extends HttpServlet {
 				}
 				request.getSession().setAttribute("dateiname",  pfad + dateiname);
 				response.sendRedirect("SpeichernLaden_HTML/spielGespeichert.jsp");
-			}
-		}
-	}
+		
 }
 
 					JSPHilfsmethoden.zeigeFehlerJSP(e.getMessage(), request, response);
 					return;
 				}
 				request.getSession().setAttribute("dateiname",  pfad + dateiname);
-				response.sendRedirect("SpeichernLaden_HTML/spielGespeichert.jsp");
+				response.sendRedirect("spielGespeichert.jsp");
 			}
 		}
 	}
