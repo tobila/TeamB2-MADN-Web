@@ -61,19 +61,19 @@ public class SpielBean implements iBediener, Serializable {
 		return brett;
 	}
 
-	public int getGewählteSpieler(){
+	public int getGewaehlteSpieler(){
 		return gewählteSpieler;
 	}
 	
-	public void setGewählteSpieler(int gewählteSpieler ){
+	public void setGewaehlteSpieler(int gewählteSpieler ){
 		this.gewählteSpieler=gewählteSpieler;
 	}
 
-	public int getGewählteKis(){
+	public int getGewaehlteKis(){
 		return gewählteKis;
 	}
 	
-	public void setGewählteKis(int gewählteKis ){
+	public void setGewaehlteKis(int gewählteKis ){
 		this.gewählteKis=gewählteKis;
 	}
 	

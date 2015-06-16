@@ -55,5 +55,8 @@ public class SpielServlet extends HttpServlet {
 		response.sendRedirect("spiel.jsp");
 		
 	}
-
+	
+	4หัaadfd
+	q,q,q..q
+	a
 }

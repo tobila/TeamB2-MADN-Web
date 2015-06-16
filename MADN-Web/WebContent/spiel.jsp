@@ -1330,7 +1330,7 @@ if(application.getAttribute("init").equals("0")){
 				<a href=SaveFormular.jsp target="new"><button>speichern</button></a> 
 			</div>
 		</div>
-
+				<a href=SaveFormular.jsp target="new"><button>speichern</button></a> 
 			
 		<br />
 		<textarea name="log" id="log" readonly="readonly" style="width: 40%; resize: none;" rows="6"><%out.print(spiel.getLogging());%></textarea>
