@@ -84,18 +84,18 @@ public class IndexServlet extends HttpServlet {
 	
 		
 			
-			if(spiel.getGewählteKis()==0){
+			if(spiel.getGewaehlteKis()==0){
 				spiel.SpielerHinzufuegen(lName, lFarbe, null);
 				
-			}if (spiel.getGewählteSpieler() != 0 && ki==true) {
+			}if (spiel.getGewaehlteSpieler() != 0 && ki==true) {
 				System.out.println("spieler 0, ki true");
 					spiel.SpielerHinzufuegen(name, farbe, null);
 				}
 			
-			if(spiel.getGewählteKis()!=0 && spiel.getGewählteSpieler()==0 && ki==false){
+			if(spiel.getGewaehlteKis()!=0 && spiel.getGewaehlteSpieler()==0 && ki==false){
 				ki=true;
 				System.out.println("spieler 0");
-				switch(spiel.getGewählteKis()){
+				switch(spiel.getGewaehlteKis()){
 				case 1:spiel.SpielerHinzufuegen("ki1", "red", "DEFENSIV");
 				break;
 				
@@ -120,7 +120,7 @@ public class IndexServlet extends HttpServlet {
 				}
 			}
 			
-		}if(spiel.getGewählteKis()!=0 && spiel.getGewählteSpieler()!=0 && ki==false) {
+		}if(spiel.getGewaehlteKis()!=0 && spiel.getGewaehlteSpieler()!=0 && ki==false) {
 			System.out.println("sspieler 1 und ki");
 			spiel.SpielerHinzufuegen(name, farbe, null);
 				boolean red= false;
@@ -129,7 +129,7 @@ public class IndexServlet extends HttpServlet {
 				boolean green= false;
 				ki= true;
 				
-				switch (spiel.getGewählteKis()) {
+				switch (spiel.getGewaehlteKis()) {
 				
 				case 1:
 					
@@ -299,13 +299,13 @@ public class IndexServlet extends HttpServlet {
 		
 			
 		
-		int sp= spiel.getGewählteKis()+spiel.getGewählteSpieler(); 
+		int sp= spiel.getGewaehlteKis()+spiel.getGewaehlteSpieler(); 
 		if(sp == spiel.getSpieler().size()){
 			response.sendRedirect("spiel.jsp");
 		}
 		
 		//System.out.println(spiel.getSpieler().size());
-		int spielerAnzahl=spiel.getGewählteKis()+spiel.getGewählteSpieler();
+		int spielerAnzahl=spiel.getGewaehlteKis()+spiel.getGewaehlteSpieler();
 	     String uri = request.getRequestURI();
 	     if (request.getQueryString() != null)
 	         uri += "?" + request.getQueryString();

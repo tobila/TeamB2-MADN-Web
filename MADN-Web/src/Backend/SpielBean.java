@@ -28,8 +28,8 @@ public class SpielBean implements iBediener, Serializable {
 	private String dateiname;
 	private MngJFrame gui;
 	private String log;
-	private int gewÃ¤hlteSpieler=0;
-	private int gewÃ¤hlteKis=0;
+	private int gewaehlteSpieler=0;
+	private int gewaehlteKis=0;
 	
 	
 	
@@ -62,19 +62,19 @@ public class SpielBean implements iBediener, Serializable {
 	}
 
 	public int getGewaehlteSpieler(){
-		return gewÃ¤hlteSpieler;
+		return gewaehlteSpieler;
 	}
 	
-	public void setGewaehlteSpieler(int gewÃ¤hlteSpieler ){
-		this.gewÃ¤hlteSpieler=gewÃ¤hlteSpieler;
+	public void setGewaehlteSpieler(int gewaehlteSpieler ){
+		this.gewaehlteSpieler=gewaehlteSpieler;
 	}
 
 	public int getGewaehlteKis(){
-		return gewÃ¤hlteKis;
+		return gewaehlteKis;
 	}
 	
-	public void setGewaehlteKis(int gewÃ¤hlteKis ){
-		this.gewÃ¤hlteKis=gewÃ¤hlteKis;
+	public void setGewaehlteKis(int gewaehlteKis ){
+		this.gewaehlteKis=gewaehlteKis;
 	}
 	
 	
@@ -482,17 +482,6 @@ public class SpielBean implements iBediener, Serializable {
 	public int getWuerfel(){
 		return amZug.getWuerfel().getErgebnis();
 	}
-	nd.Spieler[Lbaselect-allsqckend.Spieler$Spielfigur;eŒW¤3%ı•
-	paintFocu
-	paintFocusZsZpaintFocusZpaintFocusZpaintFocusZspielfigurt
-	nd.Spielerarifier;Lselect-allsq
-	{paintFocusZcomposedTextAttributetÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
-	                                                                                                                                                                                                                                                                       	spielfigurtrifier;Lÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
-	                                                                                                                                                                                                                                                                       	                                                                                                                                                                                                                                                    	nd.Spieleraaaa[Lbackeÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿ
-	nd.Spieleraa[Lbackend.Spieler$Spielfigur;eŒW¤3%ı•
-	paintFocusZcomposedTextAttributetÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
-	spielfigurtrifier;Lÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
-	nd.Spieleraaaa[Lbackeÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿ
 
 	@Override
 	public void Speichern(String dateiname, String dateiende) throws IOException {
@@ -570,9 +559,7 @@ public class SpielBean implements iBediener, Serializable {
 		}
 
 	}
-	paintFocusZcomposedTextAttributetÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
-	                       	spielfigurtrifier;Lÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsssÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿXXXÿ[[[ÿYYYÿ\\\ÿcccÿhhhÿhhhÿfffÿhhhÿoooÿsssÿsssÿsssÿrrrÿrrrÿsss
-	       	nd.Spieleraaaa[Lbackeÿ(((ÿ333ÿ888ÿ>>>ÿDDDÿIIIÿQQQÿTTTÿ
+
 	public String getDateiname() {
 		return dateiname;
 	}
