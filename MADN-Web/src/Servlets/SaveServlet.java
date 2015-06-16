@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
  */
 @WebServlet("/SaveServlet")
 
-public class SaveServlet {SE_SELECTIONpppsr
+public class SaveServlet extends HttpServlet {SE_SELECTIONpppsr
 	aneó…²RÁøÔ
 	alogfenstertmnemonicIndexJ
 	[Lbackend.Spieler$Spielfigur;eŒW¤3%ý•
