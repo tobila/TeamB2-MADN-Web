@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
 
-import Speichern_Laden.DatenzugriffCSV;
-import Speichern_Laden.DatenzugriffPDF;
-import Speichern_Laden.DatenzugriffPDFServer;
-import Speichern_Laden.DatenzugriffSerialisiert;
-import Speichern_Laden.DatenzugriffXML;
-import Speichern_Laden.iDatenzugriff;
-import Spiel.iBediener;
+import Backend.DatenzugriffCSV;
+import Backend.DatenzugriffPDF;
+import Backend.DatenzugriffSerialisiert;
+import Backend.DatenzugriffXML;
+import Interfaces.iDatenzugriff;
+import Interfaces.iBediener;
 
 /**
  * Servlet implementation class SpeichernServlet
@@ -54,7 +53,7 @@ public class SpeichernServlet extends HttpServlet {
 				iDatenzugriff id = null;
 				String pfad =  request.getServletContext().getRealPath("gespeicherteDateien/") + "/";
 				if(dateiformat.equals("pdf")){
-					id = new DatenzugriffPDF(request); 
+					id = new DatenzugriffPDF(); 
 					dateiname += ".pdf";
 					try {
 						id.spielSpeichern(spiel, pfad + dateiname);
