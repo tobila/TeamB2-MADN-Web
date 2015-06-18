@@ -9,10 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
 
+import com.itextpdf.text.DocumentException;
+
 import Backend.DatenzugriffCSV;
 import Backend.DatenzugriffPDF;
 import Backend.DatenzugriffSerialisiert;
 import Backend.DatenzugriffXML;
+import Backend.SpielBean;
 import Interfaces.iDatenzugriff;
 import Interfaces.iBediener;
 
@@ -56,8 +59,8 @@ public class SpeichernServlet extends HttpServlet {
 					id = new DatenzugriffPDF(); 
 					dateiname += ".pdf";
 					try {
-						id.spielSpeichern(spiel, pfad + dateiname);
-					} catch (JAXBException e) {
+						id.spielfeld((SpielBean) spiel);
+					} catch (DocumentException e) {
 						e.printStackTrace();
 					}
 					request.getSession().setAttribute("dateiname",  pfad + dateiname);
@@ -69,28 +72,27 @@ public class SpeichernServlet extends HttpServlet {
 					
 				} else if(dateiformat.equals("ser")){
 					id = new DatenzugriffSerialisiert(); 
-					dateiname += ".ser";	} 
+					dateiname += ".ser";	
+					try {
+						id.speichern("Alfred", ".ser", spiel);
+					} catch (JAXBException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}} 
 //					else if(dateiformat.equals("xml")){
 //					id = new DatenzugriffXML(); 
 //					dateiname += ".xml";
 //				}
 				
 				try {
-					id.spielSpeichern(spiel, pfad + dateiname);
-				} catch (JAXBException e) {
-					JSPHilfsmethoden.zeigeFehlerJSP(e.getMessage(), request, response);
-					return;
+					id.speichern(dateiname,dateiformat,spiel);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 				request.getSession().setAttribute("dateiname",  pfad + dateiname);
 				response.sendRedirect("SpeichernLaden_HTML/spielGespeichert.jsp");
 		
-}
-
-					JSPHilfsmethoden.zeigeFehlerJSP(e.getMessage(), request, response);
-					return;
 				}
-				request.getSession().setAttribute("dateiname",  pfad + dateiname);
-				response.sendRedirect("spielGespeichert.jsp");
 			}
 		}
-	}
+}

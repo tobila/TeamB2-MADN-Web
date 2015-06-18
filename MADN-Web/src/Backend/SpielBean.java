@@ -1,10 +1,13 @@
 package Backend;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import javax.xml.bind.JAXBException;
 
 import Backend.Spieler.Spielfigur;
 import GUIswing.MngJFrame;
@@ -399,7 +402,7 @@ public class SpielBean implements iBediener, Serializable {
 	}
 
 	@Override
-	public Object laden(String dateiname, String dateiende) {
+	public Object laden(String dateiname, String dateiende) throws ClassNotFoundException, FileNotFoundException, IOException, JAXBException {
 		if (dateiende.equals("csv")) {
 			// this.brett = new Spielbrett();
 			spieler.clear();
@@ -550,11 +553,21 @@ public class SpielBean implements iBediener, Serializable {
 
 			}
 
-			d.speichern(dateiname, dateiende, s);
+			try {
+				d.speichern(dateiname, dateiende, s);
+			} catch (JAXBException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		} else {
 			if (dateiende.equals("ser")) {
-				s.speichern(dateiname, dateiende, this);
+				try {
+					s.speichern(dateiname, dateiende, this);
+				} catch (JAXBException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 

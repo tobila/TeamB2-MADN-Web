@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.xml.bind.JAXBException;
 
 import com.itextpdf.text.DocumentException;
 
@@ -651,8 +652,12 @@ public class eventHandling extends JFrame implements ActionListener, iBediener, 
 	
 	/**
 	 * Datein laden
+	 * @throws JAXBException 
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 * @throws ClassNotFoundException 
 	 */
-	public Object laden(String dateiname, String dateieinde) {
+	public Object laden(String dateiname, String dateieinde) throws ClassNotFoundException, FileNotFoundException, IOException, JAXBException {
 		iBediener s = new SpielBean();
 		return s.laden(dateiname, "");
 

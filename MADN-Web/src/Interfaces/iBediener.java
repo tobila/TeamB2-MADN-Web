@@ -1,6 +1,9 @@
 package Interfaces;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import javax.xml.bind.JAXBException;
 
 public interface iBediener {
 	
@@ -26,7 +29,7 @@ public interface iBediener {
 	void initTestSpielZugAggressiv();
 	void initTestSpielZugDefensiv();
 
-	Object laden(String dateiname, String dateiende);
+	Object laden(String dateiname, String dateiende) throws ClassNotFoundException, FileNotFoundException, IOException, JAXBException;
 	void Speichern(String dateiname, String dateiende) throws IOException;
 
 	int setIconBild(int erg);
